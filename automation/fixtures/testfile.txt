@@ -1,0 +1,2 @@
+This is a test file used by automation scripts.
+Line 2: puppet/playwright upload test.
