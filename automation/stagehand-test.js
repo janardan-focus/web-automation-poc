@@ -38,7 +38,7 @@ const __filename = fileURLToPath(import.meta.url + "/../fixtures/testfile.txt");
     // Note: While Stagehand can click upload buttons, passing a specific local OS path
     // is best done via the native Playwright API to ensure security permissions are handled correctly.
     console.log("Uploading file...");
-    // await stagehand.setInputFiles('[data-testid="input-file"]', __filename);
+    await stagehand.act(`Upload the file ${__filename}`);
 
     // 8. Shadow DOM & 9. IFrame
     // Stagehand automatically handles Shadow DOM and traversing Iframes without extra code.
