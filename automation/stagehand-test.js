@@ -1,7 +1,5 @@
 import { Stagehand } from "@browserbasehq/stagehand";
-import { z } from "zod";
 import { fileURLToPath } from "url";
-import path from "path";
 
 // Reconstruct __filename for ES Modules (Same as your Playwright script)
 const __filename = fileURLToPath(import.meta.url + "/../fixtures/testfile.txt");
