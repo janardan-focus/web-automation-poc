@@ -30,15 +30,18 @@ const __filename = fileURLToPath(import.meta.url + "/../fixtures/testfile.txt");
 
     // 6. Handle Dynamic Content
     // Stagehand's AI vision will wait for elements to settle naturally
+    await stagehand.act(`Click the reveal button`);
+    await stagehand.observe(`Any secret code?`);
     await stagehand.act(
-      `Click the reveal button, then enter 'SuperSecret' into the secret field that appears.`
+      `Then enter 'SuperSecret' into the input secret field that appears`
     );
 
     // 7. File Upload
     // Note: While Stagehand can click upload buttons, passing a specific local OS path
     // is best done via the native Playwright API to ensure security permissions are handled correctly.
     console.log("Uploading file...");
-    await stagehand.act(`Upload the file ${__filename}`);
+    const fileInput = page.locator("input[type=file]");
+    await fileInput.setInputFiles(__filename);
 
     // 8. Shadow DOM & 9. IFrame
     // Stagehand automatically handles Shadow DOM and traversing Iframes without extra code.
